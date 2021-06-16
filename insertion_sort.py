@@ -21,3 +21,16 @@ def insSort(list):
             j-=1
     return list
 print(insSort([3,2,5,87,54,7,4,3,44]))
+
+#playing with ternary operaters
+stacks = 2
+# traditional
+if stacks >= 3:
+    print('Coding Dojo')
+else:
+    print('You are not Coding Dojo!')
+# ternary
+print('Coding Dojo' if stacks >= 3 else 'You are not Coding Dojo!')
+
+
+

@@ -76,3 +76,27 @@ def rl(list):
     return list
 print(rl([1,15,3,22,5,6,7]))
 
+#alternate way to do return list
+
+def rl(list):
+    for i in range(len(list)//2):
+        list[i], list[len(list)-1-i] = list[len(list)-1-i], list[i]
+    return list
+
+print(rl([1,15,3,22,5,6,7,4,10]))
+
+# define a function that takes one input that is a function
+def invoker(callback):
+    # invoke the input pass the argument 2
+    print(callback(2))
+invoker(lambda x: 2 * x)
+invoker(lambda y: 5 + y)
+
+add10 = lambda x: x+10
+
+print(add10(5))
+
+# create a list
+my_arr = [1,2,3,4,5]
+
+print(list(map(lambda x: x**2, my_arr)))
