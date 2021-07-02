@@ -27,7 +27,6 @@ print(sports_directory)
 #Change the value 20 in z to 30
 z[0]['y'] = 30
 print(z)
-
 #Iterate Through a List of Dictionaries
 
 students = [
@@ -68,6 +67,6 @@ def printInfo(some_dict):
 printInfo(dojo)
 
 
-arr = [1,3,5,7]
+arr = [1,3,5,7,5,9,6]
 arr[0], arr[len(arr)-1] = arr[len(arr)-1], arr[0]
 print(arr)
