@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div id="mygold">
+        <p>My Gold:</p>
+        <input type="text" name="gold" id="gold" readonly ="readonly" value="{{request.session.gold_amount}}">
+        <form action="/submitgoal" id="submitform" name="submitform" method="POST">
+            {% csrf_token %}
+            <p id="goaltag">Enter amount needed to win:</p>
+            <input type="text" name="gold_goal" id="goal" value="{{request.session.gold_goal}}">
+            <button id="submitgoal">Submit</button>
+        </form>
+    </div>
+    <div id="container">
+        <form action="/process" method = "POST" id="farm">
+            {% csrf_token %}
+            <h2>Farm</h2>
+            <h3>Earns 10-20 gold</h3>
+            <input type="hidden" name="farm">
+            <button class="findGold" name="farm" action = "farm" type="submit">Find Gold!</button>
+        </form>
+        <form action="/process" method="POST" id="cave">
+            {% csrf_token %}
+            <h2>Cave</h2>
+            <h3>Earns 5-10 gold</h3>
+            <input type="hidden" name="cave">
+            <button class="findGold" name= "cave" action= "farm" type="submit">Find Gold!</button>
+        </form>
+        <form action="/process" method="POST" id="house">
+            {% csrf_token %}
+            <h2>House</h2>
+            <h3>Earns 2-5 gold</h3>
+            <button class="findGold" name="house" type="submit">Find Gold!</button>
+        </form>
+        <form action="/process" method="POST" id="casino">
+            {% csrf_token %}
+            <h2>Casino</h2>
+            <h3>Earns or Takes 50 gold</h3>
+            <button class="findGold" name="casino" type="submit">Find Gold!</button>
+        </form>
+    </div>
+    <div id="restart_button_div">
+        <a href="/restart"><button class="findGold" type="submit">Restart</button></a>
+    </div>
+    <div id="activites">
+        <p id="activityboxlabel">Activites:</p>
+            <div name="activitybox" id="activitybox">
+                {% for key in request.session.activity_list %}
+                    <p class="{{key.result}}">{{key.message}}</p>
+                {% endfor %}
+            </div>
+    </div>
+
+</body>
+</html>
